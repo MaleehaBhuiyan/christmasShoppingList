@@ -4,7 +4,8 @@ class FormTwo extends React.Component{
     state = {
         name: '',
         gift: '',
-        price: ''
+        price: '',
+        id: null
     }
 
     changeHandler = (e) => {
@@ -17,20 +18,25 @@ class FormTwo extends React.Component{
         this.setState({
             name: '',
             gift: '',
-            price: ''
+            price: '',
+            id: null
         })
     }
 
     render(){
+        console.log("From form: ", this.props.name)
         return(
-            <form onSubmit={this.submitHandler}>
+            <form onSubmit={this.submitHandler} id="formTwo">
                 <label>Name</label>
                 <input type="text" name="name" value={this.state.name} onChange={this.changeHandler} />
+                <br/>
                 <label>Gift</label>
                 <input type="text" name="gift" value={this.state.gift} onChange={this.changeHandler} />
+                <br/>
                 <label>Price</label>
                 <input type="text" name="price" value={this.state.price} onChange={this.changeHandler} />
-                <input type="submit" value="Add to List" />
+                <br/>
+                <input className="button" type="submit" value="Add to List" />
             </form>
         )
     }
